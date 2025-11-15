@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #282c34;
+            color: white;
+            padding-top: 50px;
+        }
+        #timer {
+            font-size: 3em;
+            margin-top: 20px;
+            border: 3px solid #61dafb;
+            display: inline-block;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .time-unit {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        .label {
+            display: block;
+            font-size: 0.5em;
+            color: #ccc;
+        }.
+        .value {
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Коля повертається 28.11.2025!</h1>
+	<img src="C:\Users\arman\OneDrive\Документи\!TEMP\kolya\34arvefzdf.jpg" alt="Це він!"; style="width: 100%; height: auto; max-width: 260px;"/>
+	<br>
+	<h1>Ще</h1>
+    <div id="timer">
+        <div class="time-unit"><span id="days" class="value">00</span><span class="label">Днів</span></div>
+        <div class="time-unit"><span id="hours" class="value">00</span><span class="label">Годин</span></div>
+        <div class="time-unit"><span id="minutes" class="value">00</span><span class="label">Хвилин</span></div>
+        <div class="time-unit"><span id="seconds" class="value">00</span><span class="label">Секунд</span></div>
+    </div>
+
+    <script>
+        const targetDate = new Date("November 28, 2025 23:59:59").getTime();
+
+
+        const x = setInterval(function() {
+
+
+            const now = new Date().getTime();
+
+
+            const distance = targetDate - now;
+
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+            document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+            document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "TIME IS UP!";
+                document.getElementById("timer").style.fontSize = "2em";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
